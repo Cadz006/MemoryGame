@@ -7,9 +7,9 @@ package com.Olivier.Frame;
 
 import com.Olivier.Extras.Menu;
 import com.Olivier.Panel.PanelJeu;
-import com.Olivier.Panel.Temps;
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 /**
  *
@@ -22,22 +22,23 @@ public class Frame extends JFrame {
     
     private PanelJeu panneauJeu;
     private Menu menuToolBar;
-    private Temps temps;
+    private JLabel affichageTemps;
+    private int temps = 60;
     
     public Frame(){
         super("Jeu de mémoire");
         
         //Tableau de boutons en JPanel ici
         panneauJeu = new PanelJeu();
-        temps = new Temps();
+        affichageTemps = new JLabel("Temps restant : " + temps + "s");
         menuToolBar = new Menu();
         
         add(menuToolBar, BorderLayout.NORTH);
         add(panneauJeu, BorderLayout.CENTER);
-        add(temps, BorderLayout.SOUTH);
+        add(affichageTemps, BorderLayout.SOUTH);
         setSize(DIML, DIMH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        setResizable(false);
+        setResizable(false);
         setVisible(true);
     }
 }
